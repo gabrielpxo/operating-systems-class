@@ -1,13 +1,20 @@
 void FIFO_Bombado(int pages[], int n, int capacidade) {
     int *quadros = (int *)malloc(capacidade * sizeof(int));
     int *freq_uso = (int *)malloc(capacidade * sizeof(int));
-    int indice = 0, faltasDePagina = 0;
+    // A var índice nao é mais necessária
+    int faltasDePagina = 0;
 
     // Inicialização dos quadros e frequências
     for (int i = 0; i < capacidade; i++) {
         quadros[i] = -1;
         freq_uso[i] = 0;
     }
+
+    printf("Sequência de referências: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", pages[i]);
+    }
+    printf("\nQuadros\t\t\tFrequência de Uso\n");
 
   // Cada pagina é um elemento do array pages
   // A var achou é setada como false (não encontrada)
@@ -45,7 +52,28 @@ void FIFO_Bombado(int pages[], int n, int capacidade) {
         }
     }
 
-    printf("Total de faltas de página: %d\n", faltasDePagina);
+        // Imprime o estado atual dos quadros e a frequência de uso
+        printf("\t%d\t\t\t", pagina);
+        for (int j = 0; j < capacidade; j++) {
+            if (quadros[j] != -1)
+                printf("%d ", quadros[j]);
+            else
+                printf("- ");
+        }
+        printf("\t\t");
+        for (int j = 0; j < capacidade; j++) {
+            if (quadros[j] != -1)
+                printf("%d ", freq_uso[j]);
+            else
+                printf("- ");
+        }
+        printf("\n");
+    }
+
+    printf("\nTotal de faltas de página: %d\n", faltasDePagina);
+    printf("------------------------------------\n\n");
+
+    
     free(quadros);
     free(freq_uso);
 }
