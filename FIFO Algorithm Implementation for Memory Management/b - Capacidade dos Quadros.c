@@ -63,31 +63,37 @@ int main() {
 	//teste 1
     int pages_um[] = {1, 2, 3, 4, 5, 6, 7}; // Todos os elementos são diferentes
     int n = sizeof(pages_um) / sizeof(pages_um[0]);
+	printf("Teste 1:\n");
     FIFO(pages_um, n, capacidade1);
     
     //teste 2
 	int pages_dois[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}; // Há o dobro de elementos e são todos diferentes
 	int o = sizeof(pages_dois) / sizeof(pages_dois[0]);
+	printf("Teste 2:\n");
 	FIFO(pages_dois, o, capacidade2);
 	
 	//teste 3
 	int pages_tres[] = {1, 1, 2, 3, 4, 5, 6}; // 2 elementos são iguais
 	int p = sizeof(pages_tres) / sizeof(pages_tres[0]);
+	printf("Teste 3:\n");
 	FIFO(pages_tres, p, capacidade3);
 	
 	//teste 4
 	int pages_quatro[] = {1, 1, 2, 3, 4, 1, 1}; // 4 elementos são iguais, mas são intercalados pela quantidade de quadros em elementos distintos
 	int q = sizeof(pages_quatro) / sizeof(pages_quatro[0]);
+	printf("Teste 4:\n");
 	FIFO(pages_quatro, q, capacidade4);
 	
 	//teste 5
 	int pages_cinco[] = {1, 1, 1, 1, 2, 3, 4}; // 4 elementos são iguais em sequência
 	int r = sizeof(pages_cinco) / sizeof(pages_cinco[0]);
+	printf("Teste 5:\n");
 	FIFO(pages_cinco, r, capacidade5);
 	
 	//teste 6
 	int pages_seis[] = {2, 3, 2, 4, 2, 5, 2}; // 4 elementos são iguais intercaladamente
 	int s = sizeof(pages_seis) / sizeof(pages_seis[0]);
+	printf("Teste 6:\n");
 	FIFO(pages_seis, s, capacidade6);
 
     return 0;
