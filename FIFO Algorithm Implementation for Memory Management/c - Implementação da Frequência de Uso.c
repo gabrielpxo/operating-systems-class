@@ -6,7 +6,7 @@ void FIFO_Bombado(int pages[], int n, int capacidade) {
     int *freq_uso = (int *)malloc(capacidade * sizeof(int));
     int faltasDePagina = 0;
 
-    // Inicialização dos quadros e frequências
+    // InicializaÃ§Ã£o dos quadros e frequências
     for (int i = 0; i < capacidade; i++) {
         quadros[i] = -1;
         freq_uso[i] = 0;
@@ -24,10 +24,9 @@ void FIFO_Bombado(int pages[], int n, int capacidade) {
         int pagina = pages[i];
         int achou = 0;
 
-        // Verifica se a página já está carregada
+        // Verifica se a página foi encontrada
         for (int j = 0; j < capacidade; j++) {
             // Se a achou nos quadros, incrementa a contagem da frequência na mesma posição do quadro referenciado, dentro do seu próprio vetor
-            if (quadros[j] == pagina) {
             if (quadros[j] == pagina) {
                 achou = 1;
                 freq_uso[j]++;
@@ -35,14 +34,14 @@ void FIFO_Bombado(int pages[], int n, int capacidade) {
             }
         }
 
-        // Se não achou a página, ocorre falta de página
+        // Se não achou, ocorre page miss
         if (!achou) {
             // A posição de troca é inicializada em 0, pelo padrão do algoritmo (first in, first out)
             int posicao_troca = 0;
             // Passa pelas outras posições além do 0 para verificar se alguma delas tem frequência menor que a dessa posição
             for (int j = 1; j < capacidade; j++) {
                 if (freq_uso[j] < freq_uso[posicao_troca]) {
-                	// Se há menor, atualiza a posição de troca
+                   // Se há menor, atualiza a posição de troca
                     posicao_troca = j;
                 }
             }
